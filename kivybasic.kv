@@ -1,0 +1,119 @@
+#:kivy 1.0
+#:import kivy kivy
+#:import win kivy.core.window
+
+# the first form
+<FirstForm>
+    BoxLayout:
+        orientation: "vertical"             # defines the orientation
+        BoxLayout:                          # Layout of first line
+            orientation: "horizontal"       # defines the orientation
+            BoxLayout:                      # this is a "dummy" layout, for spacing
+                size_hint_x: 0.1            # relative x-size (0.0-1.0)
+            Label:
+                text: "Kivy Basics"         # the actual text
+                font_size: 40               # font size in pixels
+                color: (0, 0.71, 1., 1)     # color in rgb
+                font_name: "fonts/the_font_bold.ttf"        # the name of the font file
+                bold: True
+                size_hint_x: 0.5            # relative x-size (0.0-1.0)
+            Image:
+                source: "images/kivy-logo-black-256.png"    # the name of the image file
+                size_hint_x: 0.2            # relative x-size (0.0-1.0)
+                size_hint_y: 0.9            # relative y-size (0.0-1.0)
+
+        BoxLayout:                          # layout for second line: username
+            orientation: "horizontal"
+            size_hint_y: 0.2
+            Label:
+                text: "Username"
+            TextInput:                      # text input
+                id: "username_id"
+            BoxLayout:                      # "dummy" layout for spacing
+
+        BoxLayout:                          # layout for second line: password
+            orientation: "horizontal"
+            size_hint_y: 0.2
+            Label:
+                text: "Password"
+            TextInput:
+                id: "password_id"
+            BoxLayout:
+
+        FloatLayout:                        # layout for putting buttons in the right places
+            Button:
+                id: "login_id"
+                text: "Login"
+                on_press: app.login()       # function to be called when button is pressed
+                pos: (50,50)                # position in pixels
+                size_hint_x: 0.2            # size in x-relative
+                size_hint_y: 0.3            # size in y-relative
+            Button:
+                id: "register_id"
+                text: "Register"
+                on_press: app.register()    # function to be called when button is pressed
+                pos: (250,50)               # position in pixels
+                size_hint_x: 0.2            # size in x-relative
+                size_hint_y: 0.3            # size in y-relative
+
+<TheForm>
+    BoxLayout:
+        orientation: "vertical"
+        Image:
+            source: "images/google_maps_hello_world.jpg"
+            size_hint_y: 0.7
+        Spinner:                                                        # a "selection" widget
+            text: "First thing"                                         # the text to be displayed
+            values: ["First thing", "Second thing", "Third thing"]      # the options to be selected from
+            size_hint_y: 0.2
+        BoxLayout:
+            size_hint_y: 0.1
+        Button:
+            text: "select"
+            on_press: app.select()
+            size_hint_y: 0.1
+
+<RegisterForm>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Register"
+            font_name: "fonts/the_font_bold.ttf"
+            font_size: 50
+            bold: True
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.3
+            Label:
+                text: "Name"
+            TextInput:
+                id: "name_id"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.3
+            Label:
+                text: "email"
+            TextInput:
+                id: "email_id"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: 0.3
+            Label:
+                text: "Password"
+            TextInput:
+                id: "password_id"
+        Button:
+            text: "Register"
+            on_press: app.login()
+
+<GridForm>
+    grid_id: grid_id
+    BoxLayout:
+        GridLayout:
+            id: grid_id
+            size_hint_y: 0.9
+            cols: 4
+            rows: 4
+            padding: 10
+            spacing: 10
+

@@ -1,0 +1,3 @@
+title=KivyBasic
+author=goren gordon
+orientation=portrait
